@@ -1,0 +1,5 @@
+//no action
+//no initial state
+//only use mapstatetoprops
+//no dispatch needed
+//use selectors

@@ -11,6 +11,8 @@ import {setCurrentUser} from './redux/user/user.actions'
 import './App.scss'
 import ShopPage from "./pages/shop/shop.component";
 import SignInAndSignUpPage from "./pages/sign-in-and-sing-up/sign-in-and-sign-up.component";
+import CheckOutPage from "./pages/checkout/checkout.component";
+
 
 
 class App extends React.Component{
@@ -61,6 +63,8 @@ class App extends React.Component{
             (<SignInAndSignUpPage/>)
           }
           />
+                    <Route exact path='/checkout' component={CheckOutPage} />
+
         </Switch>
       </div>
     );

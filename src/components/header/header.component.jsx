@@ -9,6 +9,9 @@ import { connect } from 'react-redux'
 
 import CartIcon from '../cart-icon/cart-icon.component';
 import CartDropDown from '../cart-dropdown/cart-dropdown.component'
+import { selectCurrentUser } from '../../redux/user/user.selectors'
+import { createStructuredSelector } from "reselect";
+import { selectCartHidden } from '../../redux/cart/cart.selectors'
 
 // import { ReactComponent as Logo }
 // This is a new special syntax when importing SVG in React. 
@@ -44,11 +47,13 @@ const Header = ({currentUser, hidden}) => (
 )
 
 //getting data back from store
-const mapStateToProps = ({user:{currentUser}, cart:{hidden}}) => ({
+const mapStateToProps = createStructuredSelector({
     // currentUser: user.currentUser,
     // hidden: hidden
-    currentUser,
-    hidden
+    currentUser: selectCurrentUser,
+    hidden: selectCartHidden
 })
 
 export default connect(mapStateToProps, null)(Header)
+
+//shop data is general state

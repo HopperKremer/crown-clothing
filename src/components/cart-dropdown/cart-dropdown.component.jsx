@@ -3,7 +3,9 @@ import CustomButton from "../custom-button/custom-button.component";
 import { connect } from "react-redux";
 import CartItem from "../cart-item/cart-item.component";
 
-const CartDropDown = ({cartItems}) => (
+import { withRouter } from "react-router-dom";
+
+const CartDropDown = ({cartItems, history}) => (
     <div className='cart-dropdown'>
         <div className='cart-items'>
             {
@@ -14,7 +16,12 @@ const CartDropDown = ({cartItems}) => (
             }
         </div>
 
-        <CustomButton>
+        <CustomButton
+            onClick= {() => {
+            history.push('/checkout')
+            }}>
+
+
             GO TO CHECKOUT
         </CustomButton>
     </div>
@@ -24,4 +31,4 @@ const mapStateToProps = ({cart:{cartItems}}) => ({
     cartItems
 })
 
-export default connect(mapStateToProps, null)( CartDropDown)
+export default withRouter(connect(mapStateToProps, null)( CartDropDown))
