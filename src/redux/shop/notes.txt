@@ -1,3 +1,4 @@
+//convert shop data to redux
 //no action
 //no initial state
 //only use mapstatetoprops
